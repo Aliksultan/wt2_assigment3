@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Blog</title>
+  <link rel='stylesheet' type='text/css' href='/styles.css'>
+</head>
+<body>
+  <header>
+    <h1>My Blog</h1>
+  </header>
+  <a class="create-button" href="/posts/new">Create New Post</a>
+  <ul class="blog-list">
+    <% posts.forEach(post => { %>
+      <li>
+        <h2><%= post.title %></h2>
+        <p><%= post.content.substring(0, 100) %><% if (post.content.length > 100) { %><a href="/posts/<%= post._id %>">Read more</a><% } %></p>
+      </li>
+    <% }) %>
+  </ul>
+</body>
+</html>
